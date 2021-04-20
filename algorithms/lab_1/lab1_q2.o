@@ -1,0 +1,33 @@
+#include <unordered_map>
+#include <string>
+#include <memory>
+#include <vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::vector;
+
+class Edge {
+	int ver1;
+	int ver2;
+	
+	Edge(int v1, int v2){
+		ver1= v1;
+		ver2= v2;
+	}
+}
+
+int main()
+{
+	int verticesNo;
+	cin>>vertices;
+	int edgesNo;
+	cin>>edgesNo;
+	vector<int> coins(size);
+	for(int i =0;i<size;i++){
+		cin>>coins[i];
+	}
+	
+	return 0;
+}
+
