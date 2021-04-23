@@ -9,14 +9,16 @@
 #include <chrono>
 #include <ctime>  
 
-#include "selection_sort.h"
+#include "./algorithms/insertion_sort.h"
 
 int main()
 {
     std::ifstream dataFile;
-    std::vector<int> data;
+    int* data = new int;
 
     dataFile.open("data.txt",std::ios::in); 
+
+    int count = 0;
 
     if (dataFile.is_open())
     {   
@@ -24,13 +26,20 @@ int main()
         
         while(getline(dataFile, tp))
         { 
-            data.push_back(stoi(tp));
+            data[count] = stoi(tp);
+            count++;
         }
         dataFile.close(); //close the file object.
     }
 
+    std::cout<<count<<std::endl;
+
+
     auto start = std::chrono::system_clock::now();
-    for (size_t i = 0; i < data.size(); i++)
+
+    InsertionSort::sort(data, count);
+
+    for (int i = 0; i < count; i++)
     {
         std::cout<<data[i]<<std::endl;
     }

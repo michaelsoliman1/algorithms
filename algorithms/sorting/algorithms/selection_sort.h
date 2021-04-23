@@ -2,7 +2,7 @@
 
 class SelectionSort {
 public:
-    static void sort(std::vector<int> list)
+    static void sort(int* list)
     {
 
     };

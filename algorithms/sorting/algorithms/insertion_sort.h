@@ -2,10 +2,10 @@
 
 class InsertionSort {
 public:
-    static void sort(std::vector<int> list)
+    static void sort(int* list, int count)
     {
         int val, j;
-        for (size_t i = 0; i < list.size(); i++)
+        for (int i = 1; i < count; i++)
         {
             val = list[i];
             j = i - 1;
@@ -17,6 +17,5 @@ public:
             }
             list[i + 1] = val;
         }
-        
     };
 };
