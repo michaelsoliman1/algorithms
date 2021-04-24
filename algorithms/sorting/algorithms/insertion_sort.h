@@ -2,20 +2,21 @@
 
 class InsertionSort {
 public:
-    static void sort(int* list, int count)
+    static void sort(int* list, int size)
     {
+        std::cout<<"im in insertion";
         int val, j;
-        for (int i = 1; i < count; i++)
+        for (int i = 1; i < size; i++)
         {
             val = list[i];
             j = i - 1;
 
-            while (j>0 && list[j] > val)
+            while (j>=0 && list[j] > val)
             {
                 list[j + 1] = list[j];
                 j--;
             }
-            list[i + 1] = val;
+            list[j + 1] = val;
         }
     };
 };
