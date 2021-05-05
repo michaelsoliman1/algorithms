@@ -5,6 +5,8 @@
 
 using namespace std;
 
+/// https://www.theimpossiblecode.com/blog/c11-generic-observer-pattern/
+
 
 template <typename... Args>
 class Dispatcher
