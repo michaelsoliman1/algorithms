@@ -12,52 +12,52 @@ template <typename... Args>
 class Dispatcher
 {
 public:
-    typedef std::function<void(Args...)> CBType;
+    typedef std::function<void(Args...)> callbackType;
 
-    class CBID
+    class callbackID
     {
     public:
-        CBID() : valid(false) {}
+        callbackID() : valid(false) {}
     private:
         friend class Dispatcher<Args...>;
-        CBID(typename std::list<CBType>::iterator i)
+        callbackID(typename std::list<callbackType>::iterator i)
         : iter(i), valid(true)
         {}
 
-        typename std::list<CBType>::iterator iter;
+        typename std::list<callbackType>::iterator iter;
         bool valid;
     };
 
     // register to be notified
-    CBID addCB(CBType cb)
+    callbackID addCallback(callbackType callback)
     {
-        if (cb)
+        if (callback)
         {
-            cbs.push_back(cb);
-            return CBID(--cbs.end());
+            callbacks.push_back(callback);
+            return callbackID(--callbacks.end());
         }
-        return CBID();
+        return callbackID();
     }
 
     // unregister to be notified
-    void delCB(CBID &id)
+    void deleteCallback(callbackID &id)
     {
         if (id.valid)
         {
-            cbs.erase(id.iter);
+            callbacks.erase(id.iter);
         }
     }
 
     void broadcast(Args... args)
     {
-        for (auto &cb : cbs)
+        for (auto &callback : callbacks)
         {
-            cb(args...);
+            callback(args...);
         }
     }
 
 private:
-    std::list<CBType> cbs;
+    std::list<callbackType> callbacks;
 };
 
 
@@ -67,27 +67,27 @@ enum EventEnum {EVENT1, EVENT2, EVENT3};
 int main(int argc, char *argv[])
 {
     // 2 example dispatchers, any number of arguments and types can be used:
-    Dispatcher<string, EventEnum> d1;// here any cb(string, EventEnum) can register
-    Dispatcher<int, long, double> d2;// here any cb(int, long, double) can register
+    Dispatcher<string, EventEnum> dispatcher1;// here any cb(string, EventEnum) can register
+    Dispatcher<int, long, double> dispatcher2;// here any cb(int, long, double) can register
 
     // From the "most simple" lambda usage example ...
 
-    auto cbid1 = d1.addCB([](string str, EventEnum evt) {
-                          cout << "CB1:" << str << " got event " << evt << endl;
-                          });
-    auto cbid2 = d1.addCB([](string str, EventEnum evt) {
-                          cout << "CB2:" << str << " got event " << evt << endl;
-                          });
+    auto id_1 = dispatcher1.addCallback([](const string& str, EventEnum evt) {
+        cout << "CB1:" << str << " got event " << evt << endl;
+    });
+    auto id_2 = dispatcher1.addCallback([](const string& str, EventEnum evt) {
+        cout << "CB2:" << str << " got event " << evt << endl;
+    });
 
-    d1.broadcast("** Dispatching to 2 is **", EVENT1);
-    d1.broadcast("**       E a s y       **", EVENT2);
+    dispatcher1.broadcast("** Dispatching to 2 is **", EVENT1);
+    dispatcher1.broadcast("**       E a s y       **", EVENT2);
 
-    d1.delCB(cbid1); // remove the first callback
-    d1.broadcast("** Dispatching to 1 is **", EVENT1);
-    d1.broadcast("**       E a s y       **", EVENT2);
+    dispatcher1.deleteCallback(id_1); // remove the first callback
+    dispatcher1.broadcast("** Dispatching to 1 is **", EVENT1);
+    dispatcher1.broadcast("**       E a s y       **", EVENT2);
 
-    d1.delCB(cbid2); // remove the second callback
-    d1.broadcast("** No one will see this **",EVENT3);
+    dispatcher1.deleteCallback(id_2); // remove the second callback
+    dispatcher1.broadcast("** No one will see this **", EVENT3);
 
     // ... to the "most complex" **live** instance (not copy) usage example:
 
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
     public:
         void registerCB(Dispatcher<int, long, double> &dispatcher) {
             using namespace std::placeholders;
-            dispatcher.addCB(std::bind(&MyClassWithMethod::listener, this, _1, _2, _3));
+            dispatcher.addCallback(std::bind(&MyClassWithMethod::listener, this, _1, _2, _3));
         }
     private:
         // any method with the right signature can be used:
@@ -108,11 +108,11 @@ int main(int argc, char *argv[])
 
     MyClassWithMethod instance1;
     MyClassWithMethod instance2;
-    instance1.registerCB(d2);
-    instance2.registerCB(d2);
+    instance1.registerCB(dispatcher2);
+    instance2.registerCB(dispatcher2);
     /// will be used in glfw callbacks
-    d2.broadcast(65000, 12345678910, 3.14159265);
-    d2.broadcast(56000, 1987654321, 14159265.3);
+    dispatcher2.broadcast(65000, 12345678910, 3.14159265);
+    dispatcher2.broadcast(56000, 1987654321, 14159265.3);
 
 
     return 0;
