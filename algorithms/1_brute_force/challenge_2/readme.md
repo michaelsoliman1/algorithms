@@ -1,4 +1,4 @@
-#Treasure Cave 1
+# Treasure Cave 1
 
 Your team have stumbled upon a cave full of treasures, 
 you have equipment that can hold up to a maximum weight W. 

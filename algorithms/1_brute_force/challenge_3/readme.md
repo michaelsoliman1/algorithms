@@ -1,4 +1,4 @@
-#Galaxy Visiting
+# Galaxy Visiting
 
 Your team was able to find a group of wormholes connecting galaxies with each other.
 Starting from our galaxy you wish to visit each galaxy exactly once 
