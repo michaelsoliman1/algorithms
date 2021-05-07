@@ -1,4 +1,4 @@
-#The Penguin and perfect trees
+# The Penguin and perfect trees
 
 Bob the penguin has been recently interested in trees, but he has just found out about the perfect binary tree* and he became obsessed with it. Every day he draw a perfect binary tree and write down its inorder traversal in a seperate paper, but unfortunately he lost all his tree drawings and all he has now is the inorder traversal of this trees. Can you help him reconstruct this trees?
 
