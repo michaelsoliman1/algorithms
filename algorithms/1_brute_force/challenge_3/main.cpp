@@ -1,10 +1,8 @@
 #include <iostream>
-#include <typeinfo>
 #include <typeindex>
 #include <unordered_map>
-#include <string>
-#include <memory>
 #include <vector>
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -41,8 +39,7 @@ void generateRoutes(vector<int> generatedRoutes, vector<int> routes, vector<bool
 		
 }
 
-int main()
-{
+int main() {
 	int galxNo;
 	cin>>galxNo;
 	int edgesNo;

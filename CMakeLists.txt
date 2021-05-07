@@ -3,6 +3,13 @@ project(c++)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(sorting algorithms/sorting/sort.cpp)
-add_executable(ec_test design_patterns/entity_component/main.cpp)
-add_executable(generic_observer design_patterns/generic_observer/generic_observer.cpp)
+add_executable(algorithms1_brute_force_ch01 algorithms/1_brute_force/challenge_1/main.cpp)
+add_executable(algorithms1_brute_force_ch02 algorithms/1_brute_force/challenge_2/main.cpp)
+add_executable(algorithms1_brute_force_ch03 algorithms/1_brute_force/challenge_3/main.cpp)
+add_executable(algorithms2_sorting algorithms/2_sorting/sort.cpp)
+add_executable(algorithms3_BST_ch01 algorithms/3_binary_search_trees/challenge_1/main.cpp)
+add_executable(algorithms3_BST_ch02 algorithms/3_binary_search_trees/challenge_2/main.cpp)
+add_executable(algorithms3_BST_ch03 algorithms/3_binary_search_trees/challenge_3/main.cpp)
+
+add_executable(dp01_entity_comp_demo design_patterns/entity_component/main.cpp)
+add_executable(db01_generic_observer design_patterns/generic_observer/generic_observer.cpp)
