@@ -7,9 +7,12 @@ add_executable(algorithms1_brute_force_ch01 algorithms/1_brute_force/challenge_1
 add_executable(algorithms1_brute_force_ch02 algorithms/1_brute_force/challenge_2/main.cpp)
 add_executable(algorithms1_brute_force_ch03 algorithms/1_brute_force/challenge_3/main.cpp)
 add_executable(algorithms2_sorting algorithms/2_sorting/sort.cpp)
-add_executable(algorithms3_BST_ch01 algorithms/3_binary_search_trees/challenge_1/main.cpp)
-add_executable(algorithms3_BST_ch02 algorithms/3_binary_search_trees/challenge_2/main.cpp)
-add_executable(algorithms3_BST_ch03 algorithms/3_binary_search_trees/challenge_3/main.cpp)
+add_executable(algorithms3_trees_ch01 algorithms/3_trees/challenge_1/main.cpp)
+add_executable(algorithms3_trees_ch02 algorithms/3_trees/challenge_2/main.cpp)
+add_executable(algorithms3_trees_ch03 algorithms/3_trees/challenge_3/main.cpp)
+add_executable(algorithms3_trees_ch04 algorithms/3_trees/challenge_4/main.cpp)
+add_executable(algorithms3_trees_ch05 algorithms/3_trees/challenge_5/main.cpp)
+
 
 add_executable(dp01_entity_comp_demo design_patterns/entity_component/main.cpp)
 add_executable(db01_generic_observer design_patterns/generic_observer/generic_observer.cpp)
