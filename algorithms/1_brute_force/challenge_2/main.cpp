@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
 #include <unordered_map>
-#include <memory>
 #include <vector>
 
 using std::cin;
@@ -16,7 +14,7 @@ void generateTreasure(vector<vector<int>> generatedItems,vector<vector<int>> ite
 	if(index == noOfItems){
 		int maxV = 0;
 		int weight = 0;
-		if(generatedItems[0].size() != 0){
+		if(!generatedItems[0].empty()){
 			for(int i = 0;i < generatedItems[0].size(); i++){
 				maxV += generatedItems[0][i];
 				weight += generatedItems[1][i];
@@ -38,8 +36,7 @@ void generateTreasure(vector<vector<int>> generatedItems,vector<vector<int>> ite
 		
 }
 
-int main()
-{
+int main() {
 	int weight;
 	cin>>weight;
 	int n;
