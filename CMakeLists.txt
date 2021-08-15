@@ -3,9 +3,9 @@ project(c++)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(algorithms1_brute_force_ch01 algorithms/1_brute_force/challenge_1/main.cpp)
-add_executable(algorithms1_brute_force_ch02 algorithms/1_brute_force/challenge_2/main.cpp)
-add_executable(algorithms1_brute_force_ch03 algorithms/1_brute_force/challenge_3/main.cpp)
+add_executable(algorithms1_brute_force_ch01 "algorithms/1_brute_force/hackerrank/challenge_1/main.cpp")
+add_executable(algorithms1_brute_force_ch02 algorithms/1_brute_force/hackerrank/challenge_2/main.cpp)
+add_executable(algorithms1_brute_force_ch03 algorithms/1_brute_force/hackerrank/challenge_3/main.cpp)
 add_executable(algorithms2_sorting algorithms/2_sorting/sort.cpp)
 add_executable(algorithms3_trees_ch01 algorithms/3_trees/challenge_1/main.cpp)
 add_executable(algorithms3_trees_ch02 algorithms/3_trees/challenge_2/main.cpp)

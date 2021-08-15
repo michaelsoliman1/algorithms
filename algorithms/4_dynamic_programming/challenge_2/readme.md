@@ -1,4 +1,4 @@
-# Paint the blocks 
+# [Paint the blocks](https://www.hackerrank.com/contests/cmpn302-fall2021-hw4/challenges/paint-the-blocks-1) 
 
 You have a number of consequent blocks adjacent to each other and every block of width 1 m and height h[i] meter, you need to re-paint these blocks with the minimum number of steps given that you have two options, either you paint the blocks vertically, so you will paint only one block in one step, or you paint 1 m of all blocks with no gaps horizontally, for example if you have 4 blocks of sizes 2 3 2 3 you can paint the first 2 m meter horizontally of the 4 blocks in 2 steps but for the last meter of the second and fourth block you will not be able to do it in one step as there is a gap in the middle so each one will be done independently.
 

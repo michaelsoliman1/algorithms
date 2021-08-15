@@ -1,4 +1,4 @@
-# Boss Lair
+# [Boss Lair](https://www.hackerrank.com/contests/cmpn302-fall2021-hw1/challenges/boss-lair)
 
 You are a hero entering a boss’s lair. The consists of N floors. Each _floor is square shaped and consists of multiple square-shaped rooms of similar size. Each _floor has N rows by N columns of rooms. From each room, you can access the same room in the _floor above, and the rooms to your right, and bottom directions. Upon entering each room, you pay a certain amount of gold. You enter from the lowest _floor from the room to the top left. The boss is at the highest _floor in the room to the bottom right. Given the amount paid for each room, find the minimum amount of gold needed to reach the boss’s room. You are required to answer the question above using brute force implemented using recursion.
 

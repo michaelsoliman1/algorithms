@@ -1,4 +1,4 @@
-# Dark streets
+# [Dark streets](https://www.hackerrank.com/contests/cmpn302-fall2021-lab4/challenges/dark-streets)
 
 Bob fears the dark and unfortunately many streetlights in his neighborhood are broken. He wants to visit some of his friend today as he feels so lonely, so he needs some help. The streets are represented as a tree with root at node 1 and N Nodes, the leaves of the tree contains his friends. He needs to know which friend he can visit given that he can't take a path that have more than M consecutive dark streets. Count the number of friends he can visit.
 

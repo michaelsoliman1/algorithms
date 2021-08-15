@@ -1,4 +1,4 @@
-# Maximum sum 
+# [Maximum sum](https://www.hackerrank.com/contests/cmpn302-fall2021-hw4/challenges/maximum-sum-13) 
 
 Given an array of n integers you are required to partition this array to k partitions every partition has m consequent numbers such that the summation of these m*k numbers is maximum possible, note that the partitions should not overlap
 

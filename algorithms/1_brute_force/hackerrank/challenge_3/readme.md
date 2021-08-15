@@ -1,4 +1,4 @@
-# Galaxy Visiting
+# [Galaxy Visiting](https://www.hackerrank.com/contests/cmpn302-fall2021-hw1/challenges/galaxy-visiting)
 
 Your team was able to find a group of wormholes connecting galaxies with each other.
 Starting from our galaxy you wish to visit each galaxy exactly once 

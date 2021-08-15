@@ -1,4 +1,4 @@
-# Serve the burger
+# [Serve the burger](https://www.hackerrank.com/contests/cmpn302-fall2021-hw4/challenges/serve-the-burger)
 
 You have a restaurant that serves two sizes of burger either small or large, the small burger takes a grams of meat and the large takes b grams. You have the orders of n customers, every order needs x small burgers and y large burgers, and you are required to serve the maximum number possible of orders given that you have only d grams of meat available
 

@@ -1,4 +1,4 @@
-# Treasure Cave 1
+# [Treasure Cave 1](https://www.hackerrank.com/contests/cmpn302-fall2021-hw1/challenges/treasure-cave-1)
 
 Your team have stumbled upon a cave full of treasures, 
 you have equipment that can hold up to a maximum weight W. 

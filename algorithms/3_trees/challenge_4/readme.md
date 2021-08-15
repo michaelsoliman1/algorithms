@@ -1,4 +1,4 @@
-# Subtree Size
+# [Subtree Size](https://www.hackerrank.com/contests/cmpn302-fall2021-lab4/challenges/subtree-size)
 
 Mike and Tanya are bored, so they decided to play a game, Mike will create a tree rooted at node 1 and give it to Tanya, and she has to answer two types of queries
 
