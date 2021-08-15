@@ -12,6 +12,10 @@ add_executable(algorithms3_trees_ch02 algorithms/3_trees/challenge_2/main.cpp)
 add_executable(algorithms3_trees_ch03 algorithms/3_trees/challenge_3/main.cpp)
 add_executable(algorithms3_trees_ch04 algorithms/3_trees/challenge_4/main.cpp)
 add_executable(algorithms3_trees_ch05 algorithms/3_trees/challenge_5/main.cpp)
+add_executable(algorithms4_dynamic_programming_ch01 algorithms/4_dynamic_programming/challenge_1/main.cpp)
+add_executable(algorithms4_dynamic_programming_ch02 algorithms/4_dynamic_programming/challenge_2/main.cpp)
+add_executable(algorithms4_dynamic_programming_ch03 algorithms/4_dynamic_programming/challenge_3/main.cpp)
+
 
 
 add_executable(dp01_entity_comp_demo design_patterns/entity_component/main.cpp)
