@@ -3,18 +3,20 @@ project(c++)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(algorithms1_brute_force_ch01 "algorithms/1_brute_force/hackerrank/challenge_1/main.cpp")
-add_executable(algorithms1_brute_force_ch02 algorithms/1_brute_force/hackerrank/challenge_2/main.cpp)
-add_executable(algorithms1_brute_force_ch03 algorithms/1_brute_force/hackerrank/challenge_3/main.cpp)
-add_executable(algorithms2_sorting algorithms/2_sorting/sort.cpp)
-add_executable(algorithms3_trees_ch01 algorithms/3_trees/challenge_1/main.cpp)
-add_executable(algorithms3_trees_ch02 algorithms/3_trees/challenge_2/main.cpp)
-add_executable(algorithms3_trees_ch03 algorithms/3_trees/challenge_3/main.cpp)
-add_executable(algorithms3_trees_ch04 algorithms/3_trees/challenge_4/main.cpp)
-add_executable(algorithms3_trees_ch05 algorithms/3_trees/challenge_5/main.cpp)
-add_executable(algorithms4_dynamic_programming_ch01 algorithms/4_dynamic_programming/challenge_1/main.cpp)
-add_executable(algorithms4_dynamic_programming_ch02 algorithms/4_dynamic_programming/challenge_2/main.cpp)
-add_executable(algorithms4_dynamic_programming_ch03 algorithms/4_dynamic_programming/challenge_3/main.cpp)
+add_executable(algorithms1_brute_force_ch01 "algorithms/hackerrank/1_brute_force/challenge_1/main.cpp")
+add_executable(algorithms1_brute_force_ch02 algorithms/hackerrank/1_brute_force/challenge_2/main.cpp)
+add_executable(algorithms1_brute_force_ch03 algorithms/hackerrank/1_brute_force/challenge_3/main.cpp)
+add_executable(algorithms2_sorting algorithms/hackerrank/2_sorting/sort.cpp)
+add_executable(algorithms3_trees_ch01 algorithms/hackerrank/3_trees/challenge_1/main.cpp)
+add_executable(algorithms3_trees_ch02 algorithms/hackerrank/3_trees/challenge_2/main.cpp)
+add_executable(algorithms3_trees_ch03 algorithms/hackerrank/3_trees/challenge_3/main.cpp)
+add_executable(algorithms3_trees_ch04 algorithms/hackerrank/3_trees/challenge_4/main.cpp)
+add_executable(algorithms3_trees_ch05 algorithms/hackerrank/3_trees/challenge_5/main.cpp)
+add_executable(algorithms4_dynamic_programming_ch01 algorithms/hackerrank/4_dynamic_programming/challenge_1/main.cpp)
+add_executable(algorithms4_dynamic_programming_ch02 algorithms/hackerrank/4_dynamic_programming/challenge_2/main.cpp)
+add_executable(algorithms4_dynamic_programming_ch03 algorithms/hackerrank/4_dynamic_programming/challenge_3/main.cpp)
+add_executable(codeforces_p1 algorithms/codeforces/usp_freshmen_contest/main.cpp)
+
 
 
 
