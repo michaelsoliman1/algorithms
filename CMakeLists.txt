@@ -18,3 +18,6 @@ add_executable(3_trees_ch05 3_trees/challenge_5/main.cpp)
 add_executable(4_dynamic_programming_ch01 4_dynamic_programming/challenge_1/main.cpp)
 add_executable(4_dynamic_programming_ch02 4_dynamic_programming/challenge_2/main.cpp)
 add_executable(4_dynamic_programming_ch03 4_dynamic_programming/challenge_3/main.cpp)
+add_executable(1_brute_force_ch09 1_brute_force/challenge_09/main.cpp)
+
+
