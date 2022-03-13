@@ -19,5 +19,3 @@ add_executable(4_dynamic_programming_ch01 4_dynamic_programming/challenge_1/main
 add_executable(4_dynamic_programming_ch02 4_dynamic_programming/challenge_2/main.cpp)
 add_executable(4_dynamic_programming_ch03 4_dynamic_programming/challenge_3/main.cpp)
 add_executable(1_brute_force_ch09 1_brute_force/challenge_09/main.cpp)
-
-

@@ -11,7 +11,7 @@ using std::endl;
 using std::vector;
 
 /// \IMPLEMENTATION IN PROGRESS
-/// \TESTCASES PASSED
+/// \TESTCASES
 int main(){
     vector<int> grid(9);
 

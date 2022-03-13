@@ -29,8 +29,6 @@ void findMaxCells(vector<long> cells, set<long> generated, int &maxCells, int ce
 
     if(level == cellsLength) return;
 
-
-
     findMaxCells(cells, generated,maxCells, cellsLength, level + 1);
     generated.insert(cells[level]);
     findMaxCells(cells, generated, maxCells,cellsLength, level + 1);
