@@ -6,8 +6,6 @@ private:
 public:
     static void sort(int* list, int size)
     {
-        std::cout<<"im in selection";
-
         int min;
         for(int i = 0 ; i < size-1 ; i++)
         {

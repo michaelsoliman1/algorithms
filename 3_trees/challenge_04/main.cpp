@@ -5,6 +5,7 @@
 
 #include "iostream"
 #include "vector"
+#include "unordered_map"
 
 enum QueryType {
     SUB_TREE_SIZE = 1,
@@ -25,28 +26,38 @@ Node* createNode(int index) {
 }
 
 /// get the tree size from the current node
-int getTreeSize(Node *root){
+/// tree sizes are cached results from previous recursions
+/// to speed up calculating tree size
+int getTreeSize(Node *root,  std::unordered_map<int, int> &treeSizes){
     if(root == nullptr){
         return 0;
     }
-    else{
-        return 1 + getTreeSize(root->left) + getTreeSize(root->right);
+    /// if key is found
+    /// return the stored size
+    if(treeSizes.find(root->index) !=  treeSizes.end()){
+        return treeSizes[root->index];
     }
+    /// else key is not found
+    /// store the value
+    int size =  1 + getTreeSize(root->left, treeSizes) + getTreeSize(root->right, treeSizes);
+    treeSizes[root->index] = size;
+    return size;
+
 }
 
 /// get subtrees count based on the given size
-void getSubTreesCount(Node* root,int size , int &count) {
+void getSubTreesCount(Node* root,int size , int &count, std::unordered_map<int, int>& treeSizes) {
     if (root == nullptr) return;
 
-    int leftSize = getTreeSize(root->left);
-    int rightSize = getTreeSize(root->right);
+    int leftSize = getTreeSize(root->left, treeSizes);
+    int rightSize = getTreeSize(root->right, treeSizes);
 
     if (leftSize == size) {
         count++;
     }
     /// only go to the next left node when the size of its subtree is greater than the given size
     if (leftSize > size){
-        getSubTreesCount(root->left, size, count);
+        getSubTreesCount(root->left, size, count, treeSizes);
     }
 
     if (rightSize == size)  {
@@ -54,13 +65,15 @@ void getSubTreesCount(Node* root,int size , int &count) {
     }
     /// only go to the next right  node when the size of its subtree is greater than the given size
     if (rightSize > size){
-        getSubTreesCount(root->right, size, count);
+        getSubTreesCount(root->right, size, count, treeSizes);
     }
 }
 
-/// TODO -- needs optimizations
+/// \IMPLEMENTATION DONE
+/// \TESTCASES PASSED 10 out of 11
 int main() {
     /// the number of nodes in the tree N.
+    /// and number of queries Q
     int N, Q;
     std::cin>>N;
 
@@ -101,21 +114,27 @@ int main() {
         queries[i] = queryData;
     }
 
+    /// a map that holds tree size for each node
+    /// key corresponds to the node index, value is the tree size for that node
+    std::unordered_map<int, int> treeSizes;
+
     for (int i = 0; i < Q; i++) {
         /// loop over all the queries and execute them
         switch (queries[i].first) {
             /// if type one, print the tree size
             case QueryType::SUB_TREE_SIZE : {
+                /// [queries[i].second] is the node number
                 Node* requestedNode = nodes[queries[i].second - 1];
-                std::cout<<getTreeSize(requestedNode)<<std::endl;
+                std::cout<<getTreeSize(requestedNode, treeSizes)<<std::endl;
                 break;
             }
             /// if type two, print the count of subtrees that has the same given size
             case QueryType::SUB_TREES_COUNT : {
+                /// [queries[i].second] is the requested size
                 int requestedSize = queries[i].second;
                 int count = 0;
-                if (getTreeSize(nodes[0]) == requestedSize) count++;
-                getSubTreesCount(nodes[0], requestedSize, count);
+                if (getTreeSize(nodes[0], treeSizes) == requestedSize) count++;
+                getSubTreesCount(nodes[0], requestedSize, count, treeSizes);
                 std::cout<<count<<std::endl;
                 break;
             }

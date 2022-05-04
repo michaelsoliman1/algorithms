@@ -4,7 +4,6 @@ class InsertionSort {
 public:
     static void sort(int* list, int size)
     {
-        std::cout<<"im in insertion";
         int val, j;
         for (int i = 1; i < size; i++)
         {

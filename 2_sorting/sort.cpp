@@ -1,88 +1,118 @@
 #include <iostream>
 #include <typeinfo>
 #include <typeindex>
-#include <unordered_map>
 #include <string>
-#include <memory>
-#include <vector>
 #include <fstream>
 #include <chrono>
-#include <ctime>  
 
 #include "./algorithms/insertion_sort.h"
 #include "./algorithms/selection_sort.h"
 #include "./algorithms/quick_sort.h"
 #include "./algorithms/merge_sort.h"
 
-int main(int argc, char** argv) {
-    if(argc < 4) return 0;
+using std::cin;
+using std::cout;
+using std::endl;
 
-    int algNum = atoi(argv[1]);
-    char* inputPath = argv[2];
-    char* outputPath = argv[3];
-    char* writeTimePath = argv[4];
+using std::chrono::duration;
+using std::chrono::duration_cast;
+using std::chrono::high_resolution_clock;
+using std::chrono::milliseconds;
 
-    std::fstream dataFile;
-    int* data = new int;
+int main(int argc, char **argv)
+{
+    if (argc < 4)
+        return -1;
 
-    dataFile.open(inputPath,std::ios::in);
+    int algNum;
+    char *inputFile;
+    char *outputFile;
+    char *timeFile;
 
+    try
+    {
+        algNum = std::stoi((argv[1]));
+        inputFile = argv[2];
+        outputFile = argv[3];
+        timeFile = argv[4];
+    }
+    catch (std::exception const &e)
+    {
+        cout << "error : " << e.what() << endl;
+        return -1;
+    }
+
+    std::fstream file;
+    int *data = new int();
     int size = 0;
 
-    if (dataFile.is_open())
-    {   
+    file.open(inputFile, std::fstream::in);
+    if (file.is_open())
+    {
         std::string tp;
-        
-        while(getline(dataFile, tp))
-        { 
+        while (getline(file, tp))
+        {
             data[size] = stoi(tp);
             size++;
         }
-        dataFile.close(); //close the file object.
+        file.close(); // close the file object.
     }
-
-    int d [6] = {8, 11, 3, 6,4, 1};
-
-    auto start = std::chrono::system_clock::now();
-    switch (algNum) {
-        case 0:
-            SelectionSort::sort(data, size);
-            break;
-        case 1:
-            InsertionSort::sort(data, size);
-            break;
-        case 2:
-            MergeSort::sort(data, 0, size);
-            break;
-        case 3:
-            QuickSort::sort(data, 0, size);
-            break;
-
-    }
-    auto end = std::chrono::system_clock::now();
-
-    std::chrono::duration<double> elapsed_seconds = end-start;
-
-    dataFile.open(outputPath,std::ios::out | std::ios::trunc);
-
-    if (dataFile.is_open())
+    else
     {
-        for(int i =0;i < size;i++)
+        cout << "error : "
+             << "couldn't read data" << endl;
+        return -1;
+    }
+
+    auto start = high_resolution_clock::now();
+    switch (algNum)
+    {
+    case 0:
+        SelectionSort::sort(data, size);
+        break;
+    case 1:
+        InsertionSort::sort(data, size);
+        break;
+    case 2:
+        MergeSort::sort(data, 0, size);
+        break;
+    case 3:
+        QuickSort::sort(data, 0, size);
+        break;
+    }
+    auto end = high_resolution_clock::now();
+
+    /* Getting number of milliseconds as an integer. */
+    auto elapsed_seconds = duration_cast<milliseconds>(end - start);
+
+    file.open(outputFile, std::fstream::out | std::fstream::trunc);
+    if (file.is_open())
+    {
+        for(int i =0; i < size; i++)
         {
-            dataFile << data[i] << std::endl;
+            file << data[i] << std::endl;
         }
-        dataFile.close(); //close the file object.
+        file.close(); //close the file object.
+    }
+    else
+    {
+        cout << "error : "
+             << "couldn't write sorted data" << endl;
+        return -1;
     }
 
-    dataFile.open(writeTimePath,std::ios::out | std::ios::trunc);
-
-    if (dataFile.is_open())
+    file.open(timeFile, std::fstream::out | std::fstream::app);
+    if (file.is_open())
     {
-        dataFile<<elapsed_seconds.count()<<std::endl;
-        dataFile.close(); //close the file object.
+        file << inputFile << " : " << elapsed_seconds.count() << "ms" << std::endl;
+        file.close(); //close the file object.
+    }
+    else
+    {
+        cout << "error : "
+             << "couldn't write time" << endl;
+        return -1;
     }
 
     return 0;
 }
-
-//    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
